@@ -3,8 +3,6 @@ import time
 
 # Configurações
 mensagem_commit = "First commit"
-github_usuario = "italobovier"  # Substitua pelo seu usuário do GitHub
-github_senha = "!July1997!"  # Substitua pela sua senha do GitHub ou tokenitalobovier
 
 link_repositorio_remoto = "https://github.com/italobovier/teste_do.git"  # Substitua pelo link do repositório remoto
 
@@ -45,16 +43,6 @@ time.sleep(1)
 
 # Empurre para o repositório remoto
 pyautogui.typewrite('git push -u origin main')
-pyautogui.press('enter')
-time.sleep(5)
-
-# Insira o nome de usuário do GitHub
-pyautogui.typewrite(github_usuario)
-pyautogui.press('enter')
-time.sleep(2)
-
-# Insira a senha do GitHub
-pyautogui.typewrite(github_senha)
 pyautogui.press('enter')
 time.sleep(5)
 
