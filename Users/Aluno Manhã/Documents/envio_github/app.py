@@ -1,32 +1,65 @@
 import pyautogui
 import time
 
-def open_terminal():
-    # Abrir o terminal usando o atalho (ajuste conforme seu sistema operacional)
-    pyautogui.hotkey('ctrl', 'alt', 't')
-    time.sleep(2)  # Aguarda o terminal abrir
-def run_command(command):
-    # Digitar o comando no terminal e pressionar Enter
-    pyautogui.typewrite(command, interval=0.05)
-    pyautogui.press('enter')
-    time.sleep(2)  # Aguarda o comando ser executado
+# Configurações
+mensagem_commit = "First commit"
+github_usuario = "italobovier"  # Substitua pelo seu usuário do GitHub
+github_senha = "!July1997!"  # Substitua pela sua senha do GitHub ou tokenitalobovier
 
-def navigate_and_commit():
-    # Navegar até o diretório do projeto (ajuste o caminho conforme necessário)
-    run_command('cd C:\\Users\\Aluno Manhã\\Documents\\crud_de_cadastro')
+link_repositorio_remoto = "https://github.com/italobovier/teste_do.git"  # Substitua pelo link do repositório remoto
 
-    # Adicionar todos os arquivos ao repositório
-    run_command('git add .')
+# Abra o terminal
+pyautogui.hotkey('win', 'r')
 
-    # Fazer commit das mudanças
-    run_command('git commit -m "Add source code and executable"')
+pyautogui.write('cmd')
+pyautogui.press('enter')
+time.sleep(2)
 
-    # Enviar as mudanças para o repositório remoto
-    run_command('git push origin main')
+pyautogui.typewrite('cd')
+print("Cole o link do diretório e pressione Enter manualmente.")
+time.sleep(4)  # Dá tempo para você colar o link manualmente e pressionar Enter
+pyautogui.press('enter')
+time.sleep(1)
 
-def main():
-    open_terminal()
-    navigate_and_commit()
 
-if __name__ == '__main__':
-    main()
+
+# Adicione todos os arquivos ao commit
+pyautogui.typewrite('git add .')
+pyautogui.press('enter')
+time.sleep(1)
+
+# Crie o commit
+pyautogui.typewrite(f'git commit -m "{mensagem_commit}"')
+pyautogui.press('enter')
+time.sleep(2)
+
+# Mude o nome da branch para 'main'
+pyautogui.typewrite('git branch -M main')
+pyautogui.press('enter')
+time.sleep(1)
+
+# Adicione o repositório remoto
+pyautogui.typewrite(f'git remote add origin {link_repositorio_remoto}')
+pyautogui.press('enter')
+time.sleep(1)
+
+# Empurre para o repositório remoto
+pyautogui.typewrite('git push -u origin main')
+pyautogui.press('enter')
+time.sleep(5)
+
+# Insira o nome de usuário do GitHub
+pyautogui.typewrite(github_usuario)
+pyautogui.press('enter')
+time.sleep(2)
+
+# Insira a senha do GitHub
+pyautogui.typewrite(github_senha)
+pyautogui.press('enter')
+time.sleep(5)
+
+# Feche o terminal
+pyautogui.typewrite('exit')
+pyautogui.press('enter')
+
+print("Programa enviado para o repositório remoto com sucesso!")
