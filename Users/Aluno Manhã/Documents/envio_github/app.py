@@ -10,11 +10,6 @@ diretorio_projeto = r'C:\Users\Aluno Manhã\Documents\envio_github'
 pyautogui.hotkey('ctrl', 'shift', '`')  # Abre um novo terminal
 time.sleep(2)  # Espera o terminal abrir
 
-# Navegue até o diretório do projeto
-pyautogui.typewrite(f'cd "{diretorio_projeto}"')
-pyautogui.press('enter')
-time.sleep(1)
-
 # Adicione todos os arquivos ao commit
 pyautogui.typewrite('git add .')
 pyautogui.press('enter')
