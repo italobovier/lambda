@@ -3,23 +3,17 @@ import time
 
 # Configurações
 mensagem_commit = "First commit"
-
 link_repositorio_remoto = "https://github.com/italobovier/teste_do.git"  # Substitua pelo link do repositório remoto
+diretorio_projeto = r'C:\Users\Aluno Manhã\Documents\envio_github'
 
-# Abra o terminal
-pyautogui.hotkey('win', 'r')
+# Abra o terminal integrado do Visual Studio Code
+pyautogui.hotkey('ctrl', 'shift', '`')  # Abre um novo terminal
+time.sleep(2)  # Espera o terminal abrir
 
-pyautogui.write('cmd')
-pyautogui.press('enter')
-time.sleep(2)
-
-pyautogui.typewrite('cd')
-print("Cole o link do diretório e pressione Enter manualmente.")
-time.sleep(4)  # Dá tempo para você colar o link manualmente e pressionar Enter
+# Navegue até o diretório do projeto
+pyautogui.typewrite(f'cd "{diretorio_projeto}"')
 pyautogui.press('enter')
 time.sleep(1)
-
-
 
 # Adicione todos os arquivos ao commit
 pyautogui.typewrite('git add .')
